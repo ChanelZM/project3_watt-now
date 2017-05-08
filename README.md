@@ -29,6 +29,11 @@ If the data is sent to Watt-Now, employees can
 ### Use Case
 
 ## To Do
+- [ ] Create express server.
+- [ ] Deploy on heroku
+- [ ] Find a heatmap
+- [ ] Real time data flow.
+- [ ] Real time visualization of data.
 
 ## Features
 
