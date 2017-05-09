@@ -8,6 +8,8 @@ var exphbs  = require('express-handlebars');
 
 var dashboard = require('./routes/dashboard');
 var index = require('./routes/index');
+var rawData = require('./routes/rawdata');
+var festivalMap = require('./routes/festivalmap');
 
 var app = express();
 
@@ -35,6 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', dashboard);
 app.use('/image', index);
+app.use('/rawdata', rawData);
+app.use('/festivalmap', festivalMap)
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
