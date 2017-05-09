@@ -1,8 +1,20 @@
+html,
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
+}
+
+figure {
+    border: solid;
+    height: 20em;
+    width: 20em;
+    overflow: hidden;
+    img {
+        width: 100%;
+    }
 }

@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+var images = ['/img/map.png'];
 
+/* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+    var randomImage = images[Math.floor(Math.random()*images.length)];
+    console.log(randomImage);
+    res.render('image', { title: 'Express', image:randomImage });
 });
 
 module.exports = router;
