@@ -90,7 +90,29 @@ Camera sends thermal image to Node server, node server updates the page with new
 - [ ] Connection to camera's.
 
 ## Installation
-Coming soon
+**Locally**
+- First clone this repo with:
+```txt
+$ git clone https://github.com/chanelzm/project3_watt-now.git
+```
+
+- then run:
+```
+$ npm install && npm run dev
+```
+this should start the app in your localhost.
+
+**Live**
+
+- To view it live on other devices run:
+```
+$ npm install && npm run dev
+```
+- keep this terminal open an open another one and run:
+```
+$ npm run ngrok
+```
+this should give you a http link.
 
 ## Get Started
 Coming soon
