@@ -5,9 +5,11 @@ d3.json('/js/dashboard.json', function(data) {
 	var svg = d3.select('svg#dashboard');
 		// Append groups to place the pieCharts in
 		stageOne = svg.append('g')
-					.attr('class', 'stage1');
+					.attr('class', 'stage1')
+					.attr('width', '200')
+					.attr('height', '200')
+					.attr('transform', 'translate(250,250)');
 
-	console.log(data[0].stage1.red);
 	var stageRed = data[0].stage1.red;
 	var stageOrange = data[0].stage1.orange;
 	var stageYellow = data[0].stage1.yellow;
@@ -16,6 +18,18 @@ d3.json('/js/dashboard.json', function(data) {
 	var pieChart = d3.layout.pie();
 	var stageOnePie = pieChart([stageRed, stageOrange, stageYellow, stageGreen])
 	console.log(stageOnePie);
+
+	var stageOneArc = d3.svg.arc();
+		stageOneArc.outerRadius(100)
+				.innerRadius(50);
+	stageOne.selectAll('path')
+			.data(stageOnePie)
+			.enter()
+			.append('path')
+			.attr('d', stageOneArc)
+			.style('fill', 'blue')
+			.style('stroke', 'black')
+			.style('stroke-width', '2px');
 
 
 // var pie = d3.layout.pie()
