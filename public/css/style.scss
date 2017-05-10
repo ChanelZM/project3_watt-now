@@ -6,6 +6,20 @@ body {
     font: 15px "Dosis", Helvetica, Arial, sans-serif;
 }
 
+main {
+    margin-top: 4rem;
+}
+
+header {
+    background-color: white;
+    border-bottom: 2px solid #00B7FF;
+    padding: 0.8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
 a {
     color: #00B7FF;
 }
@@ -21,13 +35,15 @@ figure {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
+    margin: 0;
 }
 
 h2 {
     font-size: 36px;
     font-weight: 500;
+    margin: 0.5rem 0;
 }
 
 h3 {
@@ -55,7 +71,12 @@ p {
 }
 
 nav {
+    background-color: white;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-bottom: 2px solid #00B7FF;
+    position: fixed;
     font-size: 1.3em;
     ul {
         justify-content: space-between;
@@ -65,11 +86,22 @@ nav {
         margin: 0;
         padding-left: 0;
         li {
-            //margin-right: 3rem;
+            display: inline-block;
             padding: 0.5em;
+            position: relative;
+            text-align: center;
+            width: calc(100vw / 3);
             a {
                 color: #060c36;
                 text-decoration: none;
+            }
+            a::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
             }
             a:visited {
                 color: #060c36;
@@ -96,22 +128,40 @@ svg {
 img[src="/img/watt-now_logo.jpg"] {
     float: left;
     margin-right: 1rem;
-    width: 5rem;
+    width: 4rem;
 }
 
-@media screen and (min-width: 90em){
+@media screen and (min-width: 40em){
     h1 {
-        font-size: 60px;
+        font-size: 40px;
         font-weight: 500;
+    }
+
+    img[src="/img/watt-now_logo.jpg"] {
+        margin-right: 2rem;
+        width: 9rem;
+    }
+
+    header {
+        border-bottom: 0;
+        margin: 2rem 0;
+        padding: 0;
+        position: relative;
+    }
+
+    main {
+        margin: 2rem 0 0 0;
     }
 
     nav {
         padding-bottom: 0.5em;
+        position: relative;
         ul {
             display: block;
             li {
                 display: inline;
                 margin-bottom: 0.5rem;
+                text-align: left;
             }
             li:not(:last-of-type){
                 margin-right: 2rem;
@@ -121,7 +171,17 @@ img[src="/img/watt-now_logo.jpg"] {
 
     body {
         margin: 0 auto;
+        max-width: 70rem;
+    }
+}
+
+@media screen and (min-width: 90em){
+    body {
         max-width: 90rem;
+    }
+    h1 {
+        font-size: 60px;
+        font-weight: 500;
     }
 
     img[src="/img/watt-now_logo.jpg"] {
