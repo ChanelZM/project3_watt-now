@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('festivalmap', { title: 'Festival Map' });
+  res.render('festivalmap', { title: 'Festival Map', festivalmap: true});
 });
 
 module.exports = router;
