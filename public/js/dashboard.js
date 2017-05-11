@@ -1,3 +1,10 @@
+var text = {
+	red:"Erg druk",
+	orange:"Druk",
+	yellow:"Rustig",
+	green:"Erg rustig",
+};
+
 
 var svg = d3.select('svg#dashboard')
 			.attr({
@@ -87,22 +94,21 @@ function drawPie(parent,data, index){
 	index = index+1;
 	var backgroundColors = [highest, 'empty'];
 
-	var text = {
-		red:"Erg druk",
-		orange:"Druk",
-		yellow:"Rustig",
-		green:"Erg rustig",
-	};
+
+
 
 	var pieChart = d3.layout.pie()
 	 .value(function(d) {return d })
 	.sort(null);
 	var pieData = pieChart([crowded, rest ]);
 
+
 	var pieArc = d3.svg.arc()
 		.outerRadius(140)
 		.innerRadius(110);
 
+
+	// small text
 	d3.select(parent)
 		.append('text')
 		.attr({
@@ -112,6 +118,8 @@ function drawPie(parent,data, index){
 		.style('transform', 'translate(0, 1em )')
 		.text(text[highest])
 
+
+	//big text
 	d3.select(parent)
 		.append('text')
 		.attr({
@@ -121,26 +129,24 @@ function drawPie(parent,data, index){
 		.style('transform', 'translate(0, -1em )')
 		.text("area "+index);
 
-	var donut = d3.select(parent).selectAll('path')
-	.data(pieChart)
-		.enter().append('path')
-		// .transition().duration(500)
-		// donut.exit().remove();
-		// donut
-		.attr("d", pieArc)
-		// .attr("fill", function(d, i) { return backgroundColors[i]; })
-		.attr('class', function(d,i){return backgroundColors[i]})
-		.each(function(d) { this._current = d; })
-		// .transition().duration(500)
 
-		change(pieChart)
-		function change(pieChart) {
-			//console.log(pieData);
-			var value = this.value;
-			pieChart.value(function(d){return d[value]}); // change the value function
-			donut = donut.data(pieChart); // compute the new angles
-			donut.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
-		}
+	var donut = d3.select(parent).selectAll('path').data(pieData);
+		donut.enter().insert('path')
+		donut.transition().duration(500)
+		//transition hack source:http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde
+		.attrTween("d", function(d) {
+				this._current = this._current || d;
+				var interpolate = d3.interpolate(this._current, d);
+				this._current = interpolate(0);
+				return function(t) {
+						return arc(interpolate(t));
+				};
+		})
+		donut.exit().remove();
+		donut.attr('class', function(d,i){return backgroundColors[i]})
+		//the hack goes hand in hand with this
+		donut.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
+
 
 	function arcTween(a) {
 		var i = d3.interpolate(this._current, a);
@@ -149,6 +155,5 @@ function drawPie(parent,data, index){
 			return pieArc(i(t));
 		};
 	}
-
 
 }
