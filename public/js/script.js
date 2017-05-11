@@ -17,10 +17,12 @@ var socket = io();
       fakeData.container.push(generateRandom());
   }
 
+  var config = {
+      container: img.container,
+      gradient: { 0.25: "green", 0.55: "yellow", 0.85: "orange", 1.0: "red"}
+  };
   // generate heatmap
-  var heatmap = h337.create({
-      container: img.container
-  });
+  var heatmap = h337.create(config);
   heatmap.setData({
       max: fakeData.amount,
       data: fakeData.container,
@@ -45,7 +47,10 @@ var socket = io();
     // image.src = heatmap.getDataURL();
     // ctx.drawImage(image, 0, 0);
     console.log(width*height);
-    console.log(getPixelValue(width,height,20));
+
+    // setInterval(function(){
+        console.log(getPixelValue(width,height,20));
+    // }, 500)
 
 apiCall('GET', '/img/heatmap.png');
 
@@ -61,13 +66,12 @@ function getPixelValue(x,y,radius){
         for (var j = 0; j < x; j+=(radius/2)) {
             var rgba = ctx.getImageData(i,j, radius/2,radius/2).data;
             var rect = ctx.fillRect(i,j, radius/2,radius/2);
-            ctx.fillStyle = "rgba("+rgba[0]+","+rgba[1]+","+rgba[2]+","+rgba[3]+")";
+            ctx.fillStyle = "rgb("+rgba[0]+","+rgba[1]+","+rgba[2]+")";
             ctx.fill();
             colors.values.push({
                 r:rgba[0],
                 g:rgba[1],
-                b:rgba[2],
-                a:rgba[3]
+                b:rgba[2]
             });
         }
     }
