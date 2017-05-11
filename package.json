@@ -1,0 +1,26 @@
+{
+  "name": "project3-watt-now",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "gulp",
+    "dev:live": "node app.js",
+    "expose": "ngrok http 3000" 
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "express-handlebars": "^3.0.0",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-nodemon": "^2.0.2",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sass": "^3.0.0",
+    "ngrok": "^2.2.9"
+  }
+}
