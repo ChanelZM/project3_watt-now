@@ -8,9 +8,9 @@
     "background_color": "#FFFFFF",
     "icons": [
         {
-            "src": "/img/watt-now_logo.jpg",
+            "src": "/img/apple-touch-icon.png",
             "sizes": "250x250",
-            "type": "image/jpg"
+            "type": "image/png"
         }
     ]
 }
