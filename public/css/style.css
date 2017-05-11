@@ -1,8 +1,21 @@
 html,
 body {
-  margin: 0;
+  color: #060c36;
+  margin: 0 0.3rem;
   padding: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 15px "Dosis", Helvetica, Arial, sans-serif; }
+
+main {
+  margin-top: 4rem; }
+
+header {
+  background-color: white;
+  border-bottom: 2px solid #00B7FF;
+  padding: 0.8rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; }
 
 a {
   color: #00B7FF; }
@@ -28,4 +41,122 @@ figure {
   fill: #5db7ef; }
 
 .empty {
-  fill: lightgrey; }
+  fill: #f8f9fb; }
+
+h1 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0; }
+
+h2,
+.h2 {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0.5rem 0; }
+
+h3,
+.h3 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase; }
+
+h4 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px; }
+
+h5 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px; }
+
+p {
+  color: #5C637A; }
+
+nav {
+  background-color: white;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 2px solid #00B7FF;
+  position: fixed;
+  font-size: 1.3em; }
+  nav ul {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding-left: 0; }
+    nav ul li {
+      display: inline-block;
+      padding: 0.5em;
+      position: relative;
+      text-align: center;
+      width: calc(100vw / 3); }
+      nav ul li a {
+        color: #060c36;
+        text-decoration: none; }
+      nav ul li a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0; }
+      nav ul li a:visited {
+        color: #060c36; }
+
+.active {
+  background-color: #060c36;
+  border-radius: 3px 3px 0 0; }
+  .active a {
+    color: white; }
+  .active a:visited {
+    color: white; }
+
+img[src="/img/watt-now_logo.jpg"] {
+  float: left;
+  margin-right: 1rem;
+  width: 4rem; }
+
+@media screen and (min-width: 40em) {
+  h1 {
+    font-size: 40px;
+    font-weight: 500; }
+  img[src="/img/watt-now_logo.jpg"] {
+    margin-right: 2rem;
+    width: 9rem; }
+  header {
+    border-bottom: 0;
+    margin: 2rem 0;
+    padding: 0;
+    position: relative; }
+  main {
+    margin: 2rem 0 0 0; }
+  nav {
+    padding-bottom: 0.5em;
+    position: relative; }
+    nav ul {
+      display: block; }
+      nav ul li {
+        display: inline;
+        margin-bottom: 0.5rem;
+        text-align: left; }
+      nav ul li:not(:last-of-type) {
+        margin-right: 2rem; }
+  body {
+    margin: 0 auto;
+    max-width: 70rem; } }
+
+@media screen and (min-width: 90em) {
+  body {
+    max-width: 90rem; }
+  h1 {
+    font-size: 60px;
+    font-weight: 500; }
+  img[src="/img/watt-now_logo.jpg"] {
+    margin-right: 2rem;
+    width: 12rem; } }

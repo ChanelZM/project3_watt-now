@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>{{title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     {{#if ENV_DEVELOPMENT}}
     <script src="http://localhost:35729/livereload.js"></script>
     {{/if}}
 </head>
 <body>
+    <header>
+        <img src="/img/watt-now_logo.jpg" alt="Watt-Now logo" />
+        <h1>Event Management</h1>
+    </header>
+    <nav>
+        <ul>
+            <li class="{{#if dashboard}}active{{/if}}">
+                <a href="/">Dashboard</a>
+            </li>
+            <li class="{{#if rawdata}}active{{/if}}">
+                <a href="/rawdata">Raw Data</a>
+            </li>
+            <li class="{{#if festivalmap}}active{{/if}}">
+                <a href="/festivalmap">Festival map</a>
+            </li>
+        </ul>
+    </nav>
 
 
     {{{body}}}

@@ -7,30 +7,36 @@ var svg = d3.select('svg#dashboard')
 
 var stages = [
 	{
-			"red" : 20,
-			"orange" : 40,
-			"yellow": 10,
+			"red" : 10,
+			"orange" : 20,
+			"yellow": 60,
 			"green": 5
 	},
 	{
 			"red" : 30,
-			"orange" : 10,
-			"yellow": 50,
+			"orange" : 40,
+			"yellow": 20,
 			"green": 0
 	},
 	{
 			"red" : 10,
 			"orange" : 0,
-			"yellow": 50,
-			"green": 20
+			"yellow": 20,
+			"green": 50
+	},
+	{
+			"red" : 60,
+			"orange" : 0,
+			"yellow": 30,
+			"green": 10
 	}
 	];
-
+var base = 155;
 svg.selectAll('g').data(stages)
 	.enter().append('g')
 	.attr({
 		'class': function(d,i){return 'stage'+ (i+1) },
-		'transform' : function(d,i){ return 'translate('+(250+210*i)+',250)' }
+		'transform' : function(d,i){ return 'translate('+(base+(base*2)*i)+','+base+')' }
 	})
 	.each(function(d,i) { drawPie(this,d,i);})
 
@@ -54,8 +60,8 @@ function drawPie(parent,data, index){
 	var pieData = pieChart([crowded, rest ]);
 
 	var pieArc = d3.svg.arc()
-		.outerRadius(100)
-		.innerRadius(70);
+		.outerRadius(140)
+		.innerRadius(110);
 	//
 	d3.select(parent)
 		.append('text')

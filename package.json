@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "gulp",
-    "dev:live": "node app.js"
+    "dev:live": "node app.js",
+    "expose": "ngrok http 3000" 
   },
   "dependencies": {
     "body-parser": "^1.13.3",
@@ -16,9 +17,10 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-sass": "^3.0.0",
-    "gulp-nodemon": "^2.0.2",
     "gulp-livereload": "^3.8.0",
-    "gulp-plumber": "^1.0.0"
+    "gulp-nodemon": "^2.0.2",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sass": "^3.0.0",
+    "ngrok": "^2.2.9"
   }
 }
