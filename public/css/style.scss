@@ -34,19 +34,36 @@ figure {
     }
 }
 
+.red {
+	fill: #fb5d61;
+}
+.orange {
+	fill: #ffa7a2;
+}
+.yellow {
+	fill: #a8d3f5;
+}
+.green {
+	fill: #5db7ef;
+}
+.empty {
+	fill: #f8f9fb;
+}
 h1 {
     font-size: 20px;
     font-weight: 500;
     margin: 0;
 }
 
-h2 {
+h2,
+.h2 {
     font-size: 36px;
     font-weight: 500;
     margin: 0.5rem 0;
 }
 
-h3 {
+h3,
+.h3 {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 700;

@@ -1,0 +1,42 @@
+[
+	{
+		"stage1" : {
+			"red" : 20,
+			"orange" : 40,
+			"yellow": 10,
+			"green": 5
+		},
+		"stage2" : {
+			"red" : 30,
+			"orange" : 10,
+			"yellow": 50,
+			"green": 0
+		},
+		"stage3" : {
+			"red" : 10,
+			"orange" : 0,
+			"yellow": 50,
+			"green": 20
+		}
+	},
+	{
+		"stage1" : {
+			"red" : 30,
+			"orange" : 20,
+			"yellow": 15,
+			"green": 5
+		},
+		"stage2" : {
+			"red" : 40,
+			"orange" : 10,
+			"yellow": 30,
+			"green": 0
+		},
+		"stage3" : {
+			"red" : 50,
+			"orange" : 0,
+			"yellow": 20,
+			"green": 20
+		}
+	}
+]
