@@ -1,0 +1,16 @@
+{
+    "short_name": "Watt-Now",
+    "name": "Watt-Now Event Management",
+    "start_url": "/?homescreen=1",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#060c36",
+    "background_color": "#FFFFFF",
+    "icons": [
+        {
+            "src": "/img/watt-now_logo.jpg",
+            "sizes": "250x250",
+            "type": "image/jpg"
+        }
+    ]
+}
