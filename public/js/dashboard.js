@@ -1,52 +1,85 @@
-// Tell d3 what data to use for the visualisation.
-d3.json('/js/dashboard.json', function(data) {
-	// Save the SVG in a variable
 
-	var svg = d3.select('svg#dashboard');
-		// Append groups to place the pieCharts in
-		stageOne = svg.append('g')
-					.attr('class', 'stage1')
-					.attr('width', '200')
-					.attr('height', '200')
-					.attr('transform', 'translate(250,250)');
+var svg = d3.select('svg#dashboard')
+			.attr({
+				'width': '100%',
+				'height': '100vh'
+			})
 
-	var stageRed = data[0].stage1.red;
-	var stageOrange = data[0].stage1.orange;
-	var stageYellow = data[0].stage1.yellow;
-	var stageGreen = data[0].stage1.green;
+var stages = [
+	{
+			"red" : 20,
+			"orange" : 40,
+			"yellow": 10,
+			"green": 5
+	},
+	{
+			"red" : 30,
+			"orange" : 10,
+			"yellow": 50,
+			"green": 0
+	},
+	{
+			"red" : 10,
+			"orange" : 0,
+			"yellow": 50,
+			"green": 20
+	}
+	];
 
-	var pieChart = d3.layout.pie();
-	var stageOnePie = pieChart([stageRed, stageOrange, stageYellow, stageGreen])
-	console.log(stageOnePie);
-
-	var stageOneArc = d3.svg.arc();
-		stageOneArc.outerRadius(100)
-				.innerRadius(50);
-	stageOne.selectAll('path')
-			.data(stageOnePie)
-			.enter()
-			.append('path')
-			.attr('d', stageOneArc)
-			.style('fill', 'blue')
-			.style('stroke', 'black')
-			.style('stroke-width', '2px');
+svg.selectAll('g').data(stages)
+	.enter().append('g')
+	.attr({
+		'class': function(d,i){return 'stage'+ (i+1) },
+		'transform' : function(d,i){ return 'translate('+(250+210*i)+',250)' }
+	})
+	.each(function(d,i) { drawPie(this,d,i);})
 
 
-// var pie = d3.layout.pie()
-// 	.sort(null)
-// 	.value(function(d) { return d.stage2; });
-//
-// var path = d3.svg.arc()
-// 	.outerRadius(200)
-// 	.innerRadius(100);
-//
-// var arc = stageOne.selectAll(".arc")
-//     .data(pie(data))
-//     .enter().append("g")
-//       .attr("class", "arc");
-//
-//   arc.append("path")
-//       .attr("d", path)
-//       .attr("fill", function(d) { return color(d.data.stage2); });
+// draws a pieChart based and appends it to its parent
+function drawPie(parent,data, index){
+	var highest = Object.keys(data).reduce(function(a, b){ return data[a] > data[b] ? a : b });
+	var crowded = data[highest]
+	var rest = 100 - crowded;
+	index = index+1;
+	var backgroundColors = [highest, 'empty'];
 
-});
+	var text = {
+		red:"Erg druk",
+		orange:"Druk",
+		yellow:"Rustig",
+		green:"Erg rustig",
+	};
+
+	var pieChart = d3.layout.pie().sort(null);
+	var pieData = pieChart([crowded, rest ]);
+
+	var pieArc = d3.svg.arc()
+		.outerRadius(100)
+		.innerRadius(70);
+	//
+	d3.select(parent)
+		.append('text')
+		.attr({
+			'text-anchor': 'middle',
+			'class': 'h2'
+		})
+		.style('transform', 'translate(0, 1em )')
+		.text(text[highest])
+
+	d3.select(parent)
+		.append('text')
+		.attr({
+			'text-anchor': 'middle',
+			'class': 'h3'
+		})
+		.style('transform', 'translate(0, -1em )')
+		.text("area "+index);
+
+	d3.select(parent).selectAll('path')
+		.data(pieData)
+		.enter()
+		.append('path')
+		.attr('d', pieArc)
+	 	.attr('class', function(d,i){return backgroundColors[i]})
+
+}

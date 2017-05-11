@@ -1,17 +1,17 @@
 [
 	{
 		"stage1" : {
-			"red" : 60,
-			"orange" : 20,
-			"yellow": 15,
+			"red" : 20,
+			"orange" : 40,
+			"yellow": 10,
 			"green": 5
 		},
-		"stage2" : [
-			{"red" : 30},
-			{"orange" : 10},
-			{"yellow": 50},
-			{"green": 0}
-		],
+		"stage2" : {
+			"red" : 30,
+			"orange" : 10,
+			"yellow": 50,
+			"green": 0
+		},
 		"stage3" : {
 			"red" : 10,
 			"orange" : 0,
