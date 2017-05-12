@@ -10,7 +10,7 @@ var dashboard = require('./routes/dashboard');
 var index = require('./routes/index');
 var rawData = require('./routes/rawdata');
 var festivalMap = require('./routes/festivalmap');
-
+var heatmapData = require('./public/js/data.js');
 var app = express();
 
 var env = process.env.NODE_ENV || 'development';
@@ -75,55 +75,14 @@ app.set('port', process.env.PORT || 3000);
 var server = app.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + server.address().port);
 });
-
-
+newData = JSON.parse(heatmapData);
+var index = 1;
 var io = ioServer(server);
 io.on('connection',function(socket){
-    socket.on('new heatmap', function(img){
-        var base64Data = img.replace('data:image/png;base64,', "");
-        fs.writeFile("./public/img/heatmap.png", base64Data, 'base64', function(err) {
-            if (err) throw err;
-        });
-
-        request('http://localhost:3000/img/heatmap.png', function(e, r, data){
-            var url = 'http://pictaculous.com/api/1.0/?image='+data;
-
-            request(url,function(error, response, body){
-                // body = JSON.parse(body);
-                console.log(body);
-                // socket.emit('new image', body);
-            });
-        });
-    });
-
     socket.on('get data', function(){
-      var data = [
-  			{
-  				"red" : (function(){return Math.ceil(Math.random()*100)}()),
-  				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
-  				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
-  				"green":(function(){return Math.ceil(Math.random()*100)}())
-  			},
-  			{
-  				"red" : (function(){return Math.ceil(Math.random()*100)}()),
-  				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
-  				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
-  				"green":(function(){return Math.ceil(Math.random()*100)}())
-  			},
-  			{
-  				"red" : (function(){return Math.ceil(Math.random()*100)}()),
-  				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
-  				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
-  				"green":(function(){return Math.ceil(Math.random()*100)}())
-  			},
-  			{
-  				"red" : (function(){return Math.ceil(Math.random()*100)}()),
-  				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
-  				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
-  				"green":(function(){return Math.ceil(Math.random()*100)}())
-  			}
-      ];
+      var data = newData[index];
       socket.emit('send data', data);
+      index === newData.length - 1? index=0 : index+=1;
     })
 });
 

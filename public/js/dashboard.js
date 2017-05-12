@@ -16,28 +16,28 @@ var svg = d3.select('svg#dashboard')
 
 var stages = [
 	{
-			"red" : 10,
-			"orange" : 20,
-			"yellow": 40,
-			"green": 5
+		"red" : 77,
+		"orange": 10,
+		"yellow": 0,
+		"green": 0
 	},
 	{
-			"red" : 10,
-			"orange" : 60,
-			"yellow": 20,
-			"green": 0
+		"red" : 4,
+		"orange": 3,
+		"yellow": 25,
+		"green": 0
 	},
 	{
-			"red" : 10,
-			"orange" : 0,
-			"yellow": 20,
-			"green": 30
+		"red" : 3,
+		"orange": 3,
+		"yellow": 4,
+		"green": 5
 	},
 	{
-			"red" : 80,
-			"orange" : 0,
-			"yellow": 10,
-			"green": 10
+		"red" : 10,
+		"orange": 55,
+		"yellow": 3,
+		"green": 0
 	}
 ];
 

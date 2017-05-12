@@ -1,4 +1,5 @@
-var momentOne = [
+module.exports = JSON.stringify([
+[
 	{
 		"red" : 77,
 		"orange": 10,
@@ -23,8 +24,7 @@ var momentOne = [
 		"yellow": 3,
 		"green": 0
 	}
-];
-var momentTwo = [
+], [
 	{
 		"red" : 84,
 		"orange": 5,
@@ -49,8 +49,7 @@ var momentTwo = [
 		"yellow": 25,
 		"green": 0
 	}
-];
-var momentThree = [
+],[
 	{
 		"red" : 20,
 		"orange": 10,
@@ -75,8 +74,7 @@ var momentThree = [
 		"yellow": 28,
 		"green": 0
 	}
-];
-var momentFour = [
+], [
 	{
 		"red" : 5,
 		"orange": 4,
@@ -101,8 +99,7 @@ var momentFour = [
 		"yellow": 45,
 		"green": 15
 	}
-];
-var momentFive = [
+], [
 	{
 		"red" : 3,
 		"orange": 3,
@@ -127,8 +124,7 @@ var momentFive = [
 		"yellow": 5,
 		"green": 16
 	}
-];
-var momentSix = [
+], [
 	{
 		"red" : 5,
 		"orange": 4,
@@ -153,8 +149,7 @@ var momentSix = [
 		"yellow": 25,
 		"green": 0
 	}
-];
-var momentSeven = [
+], [
 	{
 		"red" : 4,
 		"orange": 5,
@@ -179,8 +174,7 @@ var momentSeven = [
 		"yellow": 35,
 		"green": 0
 	}
-];
-var momentEight = [
+],[
 	{
 		"red" : 4,
 		"orange": 3,
@@ -205,8 +199,7 @@ var momentEight = [
 		"yellow": 45,
 		"green": 15
 	}
-];
-var momentNine = [
+], [
 	{
 		"red" : 20,
 		"orange": 10,
@@ -231,8 +224,7 @@ var momentNine = [
 		"yellow": 0,
 		"green": 0
 	}
-];
-var momentTen = [
+], [
 	{
 		"red" : 20,
 		"orange": 10,
@@ -257,8 +249,7 @@ var momentTen = [
 		"yellow": 3,
 		"green": 0
 	}
-];
-var momentEleven = [
+], [
 	{
 		"red" : 10,
 		"orange": 55,
@@ -283,8 +274,7 @@ var momentEleven = [
 		"yellow": 35,
 		"green": 0
 	}
-];
-var momentTwelve = [
+],[
 	{
 		"red" : 10,
 		"orange": 73,
@@ -309,8 +299,7 @@ var momentTwelve = [
 		"yellow": 25,
 		"green": 0
 	}
-];
-var momentThirteen = [
+], [
 	{
 		"red" : 77,
 		"orange": 10,
@@ -335,8 +324,7 @@ var momentThirteen = [
 		"yellow": 45,
 		"green": 15
 	}
-];
-var momentFourteen = [
+], [
 	{
 		"red" : 10,
 		"orange": 73,
@@ -361,8 +349,7 @@ var momentFourteen = [
 		"yellow": 35,
 		"green": 0
 	}
-];
-var momentFifteen = [
+],[
 	{
 		"red" : 84,
 		"orange": 5,
@@ -387,4 +374,5 @@ var momentFifteen = [
 		"yellow": 0,
 		"green": 0
 	}
-];
+]
+])
