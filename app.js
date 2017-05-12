@@ -81,7 +81,7 @@ var io = ioServer(server);
 io.on('connection',function(socket){
     socket.on('get data', function(){
       var data = newData[index];
-      socket.emit('send data', data);
+      io.emit('send data', data);
       index === newData.length - 1? index=0 : index+=1;
     })
 });
