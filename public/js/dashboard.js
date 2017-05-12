@@ -43,33 +43,11 @@ var stages = [
 
 	drawInit()
 	setInterval(function(){
-		stages =  [
-			{
-				"red" : (function(){return Math.ceil(Math.random()*100)}()),
-				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
-				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
-				"green":(function(){return Math.ceil(Math.random()*100)}())
-			},
-			{
-				"red" : (function(){return Math.ceil(Math.random()*100)}()),
-				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
-				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
-				"green":(function(){return Math.ceil(Math.random()*100)}())
-			},
-			{
-				"red" : (function(){return Math.ceil(Math.random()*100)}()),
-				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
-				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
-				"green":(function(){return Math.ceil(Math.random()*100)}())
-			},
-			{
-				"red" : (function(){return Math.ceil(Math.random()*100)}()),
-				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
-				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
-				"green":(function(){return Math.ceil(Math.random()*100)}())
-			}
-			]
-			drawInit()
+			socket.emit('get data');
+			socket.on('send data', function(data){
+				stages = data;
+				drawInit()
+			})
 	},1000)
 
 

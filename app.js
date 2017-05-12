@@ -82,7 +82,6 @@ var server = app.listen(app.get('port'), function() {
 var io = ioServer(server);
 io.on('connection',function(socket){
     socket.on('new heatmap', function(img){
-
         var base64Data = img.replace('data:image/png;base64,', "");
         fs.writeFile("./public/img/heatmap.png", base64Data, 'base64', function(err) {
             if (err) throw err;
@@ -97,8 +96,37 @@ io.on('connection',function(socket){
                 // socket.emit('new image', body);
             });
         });
-
     });
+
+    socket.on('get data', function(){
+      var data = [
+  			{
+  				"red" : (function(){return Math.ceil(Math.random()*100)}()),
+  				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
+  				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
+  				"green":(function(){return Math.ceil(Math.random()*100)}())
+  			},
+  			{
+  				"red" : (function(){return Math.ceil(Math.random()*100)}()),
+  				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
+  				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
+  				"green":(function(){return Math.ceil(Math.random()*100)}())
+  			},
+  			{
+  				"red" : (function(){return Math.ceil(Math.random()*100)}()),
+  				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
+  				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
+  				"green":(function(){return Math.ceil(Math.random()*100)}())
+  			},
+  			{
+  				"red" : (function(){return Math.ceil(Math.random()*100)}()),
+  				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
+  				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
+  				"green":(function(){return Math.ceil(Math.random()*100)}())
+  			}
+      ];
+      socket.emit('send data', data);
+    })
 });
 
 module.exports = server;
