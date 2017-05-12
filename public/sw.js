@@ -25,7 +25,7 @@ self.addEventListener('fetch'), function(event){
             fetch(request)
             .then(function(response){
 
-                return cachePage(request, response));
+                return cachePage(request, response);
 
             })
             .catch(function(err){
