@@ -18,7 +18,7 @@ self.addEventListener('install', function(event){
 });
 
 
-self.addEventListener('fetch'), function(event){
+self.addEventListener('fetch', function(event){
     var request = event.request;
     if(request.mode === 'navigate'){
         event.respondWith(
