@@ -8,12 +8,16 @@
     {{/ each}}
 </main> -->
 
-<main>
+<main id="raw-data">
     <h2>Raw Data</h2>
-    <section>
-        <h3>Area 1</h3>
+    <div>
+      {{#each areas}}
+      <section>
+        <h3>{{stage}}</h3>
         <figure id="img-container">
-            <img src="{{image}}" /> 
+          <img src="{{image}}" />
         </figure>
-    </section>
+      </section>
+      {{/each}}
+    </div>
 </main>

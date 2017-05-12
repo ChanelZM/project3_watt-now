@@ -9,7 +9,7 @@ var socket = io();
       height(){ return this.container.getBoundingClientRect().height},
   };
   var fakeData = {
-      amount: 100,
+      amount: 700,
       container: []
   };
 
@@ -22,7 +22,7 @@ var socket = io();
       gradient: { 0.25: "green", 0.55: "yellow", 0.85: "orange", 1.0: "red"}
   };
   // generate heatmap
-  var heatmap = h337.create(config);
+  // var heatmap = h337.create(config);
   heatmap.setData({
       max: fakeData.amount,
       data: fakeData.container,
@@ -54,6 +54,8 @@ var socket = io();
 
 apiCall('GET', '/img/heatmap.png');
 
+
+
 /*****************
 ** heatmap reader
 ******************/
@@ -65,9 +67,9 @@ function getPixelValue(x,y,radius){
     for (var i = 0; i < y; i+=(radius/2)) {
         for (var j = 0; j < x; j+=(radius/2)) {
             var rgba = ctx.getImageData(i,j, radius/2,radius/2).data;
-            var rect = ctx.fillRect(i,j, radius/2,radius/2);
-            ctx.fillStyle = "rgb("+rgba[0]+","+rgba[1]+","+rgba[2]+")";
-            ctx.fill();
+            // var rect = ctx.fillRect(i,j, radius/2,radius/2);
+            // ctx.fillStyle = "rgb("+rgba[0]+","+rgba[1]+","+rgba[2]+")";
+            // ctx.fill();
             colors.values.push({
                 r:rgba[0],
                 g:rgba[1],
