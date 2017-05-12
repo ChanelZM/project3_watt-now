@@ -1,10 +1,12 @@
 var CACHE_NAME = 'watt-now-cache-v1';
 var CACHE_PAGES_NAME = 'watt-now-pages';
+
 var pageCache = [
     '/',
     '/css/style.css',
     '/html/offline.html'
 ];
+
 
 //Create cache when serviceworker is being installed.
 self.addEventListener('install', function(event){
@@ -15,13 +17,16 @@ self.addEventListener('install', function(event){
         }).then(self.skipWaiting()));
 });
 
-self.addEventListener('fetch', function(event){
+
+self.addEventListener('fetch'), function(event){
     var request = event.request;
     if(request.mode === 'navigate'){
         event.respondWith(
             fetch(request)
             .then(function(response){
-                return cachePage(request, response);
+
+                return cachePage(request, response));
+
             })
             .catch(function(err){
                 return getCachedRequest(request);
@@ -42,6 +47,7 @@ self.addEventListener('fetch', function(event){
         );
     }
 });
+
 
 function fetchCoreFile(url){
     return caches.open(CACHE_NAME)

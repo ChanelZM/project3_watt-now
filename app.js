@@ -3,6 +3,9 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var exphbs  = require('express-handlebars');
+var ioServer = require('socket.io');
+var request = require('request');
+var fs = require('fs');
 
 var dashboard = require('./routes/dashboard');
 var index = require('./routes/index');
@@ -69,10 +72,33 @@ app.use(function(err, req, res, next) {
     });
 });
 
-module.exports = app;
-
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + server.address().port);
 });
+
+
+var io = ioServer(server);
+io.on('connection',function(socket){
+    socket.on('new heatmap', function(img){
+
+        var base64Data = img.replace('data:image/png;base64,', "");
+        fs.writeFile("./public/img/heatmap.png", base64Data, 'base64', function(err) {
+            if (err) throw err;
+        });
+
+        request('http://localhost:3000/img/heatmap.png', function(e, r, data){
+            var url = 'http://pictaculous.com/api/1.0/?image='+data;
+
+            request(url,function(error, response, body){
+                // body = JSON.parse(body);
+                console.log(body);
+                // socket.emit('new image', body);
+            });
+        });
+
+    });
+});
+
+module.exports = server;
