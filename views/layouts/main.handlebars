@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>{{title }}</title>
+    <title>Watt-Now EM</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis|Roboto" rel="stylesheet">
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/img/favicon.png" rel="icon">
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="/css/style.css">
     {{#if ENV_DEVELOPMENT}}
     <script src="http://localhost:35729/livereload.js"></script>
@@ -39,7 +42,11 @@
     <script src="/js/script.js"></script>
     <!-- d3 functionality -->
     <script src="/js/dashboard.js"></script>
-	<!-- <script src="/js/test.js"></script> -->
 
+    <script>
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
 </body>
 </html>
