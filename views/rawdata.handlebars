@@ -1,9 +1,23 @@
-<main>
+<!-- <main>
     <h2>Raw Data</h2>
     {{# each rawData}}
     <section>
         <h3>{{area}}</h3>
-        <img src="{{photo}}" />   
+        <img src="{{photo}}" />
     </section>
     {{/ each}}
+</main> -->
+
+<main id="raw-data">
+    <h2>Raw Data</h2>
+    <div>
+      {{#each areas}}
+      <section>
+        <h3>{{stage}}</h3>
+        <figure id="img-container">
+          <img src="{{image}}" />
+        </figure>
+      </section>
+      {{/each}}
+    </div>
 </main>

@@ -25,7 +25,6 @@ a {
 }
 
 figure {
-    border: solid;
     height: 20em;
     width: 20em;
     overflow: hidden;
@@ -147,6 +146,24 @@ img[src="/img/watt-now_logo.jpg"] {
     float: left;
     margin-right: 1rem;
     width: 4rem;
+}
+
+#raw-data {
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      section {
+        height: 20em;
+        width: 20em;
+      }
+      figure {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
 }
 
 @media screen and (min-width: 40em){
