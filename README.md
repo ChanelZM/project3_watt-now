@@ -77,6 +77,7 @@ Camera sends thermal image to Node server, node server updates the page with new
 - [x] Service Worker.
 - [x] Offline page.
 - [x] Piecharts with D3.js.
+- [x] Animation on piecharts.
 
 ## Features
 - Analyzes thermal images.
@@ -86,14 +87,15 @@ Camera sends thermal image to Node server, node server updates the page with new
 - ~~Alerts when important chances occur.~~
 
 ## Wishlist
+To make this project work/create a better UX these topics are needed:
 - [ ] Database connection, MongoDB for example.
-- [ ] Connection to camera's.
+- [ ] Connection to infrared camera's sending pictures.
 - [ ] Color Detection API implementation.
-- [x] Animation on piecharts.
-- [ ] Push notifications.
+- [ ] Push notifications or another way to notify that stages are getting less crowded.
+- [ ] Technical map of the event to easily discover where area's are located.
 
 ## Installation
-### Dependencies
+### Packages
 - [Express](https://www.npmjs.com/package/express) for setting up a Node server
 - [Path](https://nodejs.org/api/path.html) for creating paths to server-sided JS scripts.
 - [Handlebars](https://www.npmjs.com/package/express-handlebars) for templating.
@@ -123,9 +125,6 @@ $ npm install && npm run dev
 $ npm run expose
 ```
 this should give you a http link.
-
-## Build
-Coming soon
 
 ## Bugs
 - SVG not responsive.
