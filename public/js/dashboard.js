@@ -1,3 +1,5 @@
+var socket = io()
+
 var text = {
 	red:"Erg druk",
 	orange:"Druk",
@@ -37,33 +39,34 @@ var stages = [
 			"yellow": 10,
 			"green": 10
 	}
-	];
+];
+
 	drawInit()
 	setInterval(function(){
 		stages =  [
 			{
-				"red" : (function(){return Math.floor(Math.random()*100)}()),
-				"orange" : (function(){return Math.floor(Math.random()*100)}()),
-				"yellow":(function(){return Math.floor(Math.random()*100)}()),
-				"green":(function(){return Math.floor(Math.random()*100)}())
+				"red" : (function(){return Math.ceil(Math.random()*100)}()),
+				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
+				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
+				"green":(function(){return Math.ceil(Math.random()*100)}())
 			},
 			{
-				"red" : (function(){return Math.floor(Math.random()*100)}()),
-				"orange" : (function(){return Math.floor(Math.random()*100)}()),
-				"yellow":(function(){return Math.floor(Math.random()*100)}()),
-				"green":(function(){return Math.floor(Math.random()*100)}())
+				"red" : (function(){return Math.ceil(Math.random()*100)}()),
+				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
+				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
+				"green":(function(){return Math.ceil(Math.random()*100)}())
 			},
 			{
-				"red" : (function(){return Math.floor(Math.random()*100)}()),
-				"orange" : (function(){return Math.floor(Math.random()*100)}()),
-				"yellow":(function(){return Math.floor(Math.random()*100)}()),
-				"green":(function(){return Math.floor(Math.random()*100)}())
+				"red" : (function(){return Math.ceil(Math.random()*100)}()),
+				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
+				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
+				"green":(function(){return Math.ceil(Math.random()*100)}())
 			},
 			{
-				"red" : (function(){return Math.floor(Math.random()*100)}()),
-				"orange" : (function(){return Math.floor(Math.random()*100)}()),
-				"yellow":(function(){return Math.floor(Math.random()*100)}()),
-				"green":(function(){return Math.floor(Math.random()*100)}())
+				"red" : (function(){return Math.ceil(Math.random()*100)}()),
+				"orange" : (function(){return Math.ceil(Math.random()*100)}()),
+				"yellow":(function(){return Math.ceil(Math.random()*100)}()),
+				"green":(function(){return Math.ceil(Math.random()*100)}())
 			}
 			]
 			drawInit()
