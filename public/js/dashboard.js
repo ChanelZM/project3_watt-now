@@ -48,7 +48,7 @@ var stages = [
 				stages = data;
 				drawInit()
 			})
-	},1000)
+	},5000)
 
 
 function drawInit() {
